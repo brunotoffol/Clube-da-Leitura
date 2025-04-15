@@ -22,6 +22,8 @@ namespace ClubeDaLeitura.ConsoleApp
                     {
                         case '1': telaAmigos.CadastrarAmigo(); break;
 
+                        case '2': telaAmigos.EditarEquipamento(); break;
+
                         case '4': telaAmigos.VisualizarAmigos(true); break;
 
                         default: break;

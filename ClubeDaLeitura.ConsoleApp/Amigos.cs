@@ -2,6 +2,7 @@
 {
     public class Amigos
     {
+        public int Id;
         public string Nome;
         public string NomeResponsavel;
         public string Telefone;

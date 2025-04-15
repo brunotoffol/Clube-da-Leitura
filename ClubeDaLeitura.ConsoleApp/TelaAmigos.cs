@@ -35,8 +35,7 @@ namespace ClubeDaLeitura.ConsoleApp
             Console.WriteLine("--------------------------------------------");
 
             Console.WriteLine("Cadastrando Amigo...");
-            Console.WriteLine("---------------------------------------------");
-            Console.WriteLine();
+            Console.WriteLine("---------------------------------------------");            
 
             string nome;
             do
@@ -93,9 +92,52 @@ namespace ClubeDaLeitura.ConsoleApp
             Console.WriteLine("|              Clube do Livro               ");
             Console.WriteLine("--------------------------------------------");
 
-            Console.WriteLine("Editando Amigo...");
+            Console.WriteLine("Editando Cadastro do Amigo...");
             Console.WriteLine("---------------------------------------------");
-            Console.WriteLine();
+
+            VisualizarAmigos(false);
+
+            Console.WriteLine("---------------------------------------------");
+            Console.WriteLine("Digite o ID do amigo que deseja selecionar: ");
+            int idSelecionado = Convert.ToInt32(Console.ReadLine());
+
+            Console.Write("Digite o novo nome: ");
+            string nome = Console.ReadLine()!.Trim();
+
+            Console.Write("Digite o novo nome do responsável: ");
+            string nomeResponsavel = Console.ReadLine()!.Trim();
+
+            Console.Write("Digite o novo telefone para o amigo: ");
+            string telefone = Console.ReadLine()!.Trim();
+
+            Amigos novoAmigo = new Amigos(nome, nomeResponsavel, telefone);
+
+            bool conseguiuEditar = false;
+
+            for (int i = 0; i < amigos.Length; i++)
+            {
+                if (amigos[i] == null) continue;
+
+                else if (amigos[i].Id == idSelecionado)
+                {
+                    amigos[i].Nome = novoAmigo.Nome;
+                    amigos[i].NomeResponsavel = novoAmigo.NomeResponsavel;
+                    amigos[i].Telefone = novoAmigo.Telefone;
+
+                    conseguiuEditar = true;
+                }
+            }
+
+            if (!conseguiuEditar)
+            {
+                Console.WriteLine("Não foi possível editar o amigo selecionado");
+            }
+
+            Console.WriteLine("--------------------------------------------");
+            Console.WriteLine("Cadastro editado com sucesso");
+            Console.WriteLine("---------------------------------------------");
+            Console.Write("Pressione ENTER para finalizar o cadastro e retornar ao Menu");
+            Console.Read();
         }
         public void VisualizarAmigos(bool exibirTitulo)
         {
@@ -107,10 +149,9 @@ namespace ClubeDaLeitura.ConsoleApp
                 Console.WriteLine("--------------------------------------------");
 
                 Console.WriteLine("Visualizando lista de Amigos...");
-                Console.WriteLine("---------------------------------------------");
-                Console.WriteLine();
+                Console.WriteLine("---------------------------------------------");                
             }
-            Console.WriteLine("{0, -15} | {1, -11} | {2, -20}", "Nome", "Nome Responsável", "Telefone");
+            Console.WriteLine("{0, -5} | {1, -15} | {2, -11} | {3, -20}","Id", "Nome", "Nome Responsável", "Telefone");
 
             for (int i = 0; i < amigos.Length; i++)
             {
@@ -118,7 +159,7 @@ namespace ClubeDaLeitura.ConsoleApp
                 
                 if (a == null) continue;
                 
-                Console.WriteLine("{0, -15} | {1, -11} | {2, -20}", a.Nome, a.NomeResponsavel, a.Telefone);
+                Console.WriteLine("{0, -5} | {1, -15} | {2, -11} | {3, -20}",a.Id, a.Nome, a.NomeResponsavel, a.Telefone);
 
             }
         }
