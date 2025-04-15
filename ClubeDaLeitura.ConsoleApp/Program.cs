@@ -22,7 +22,9 @@ namespace ClubeDaLeitura.ConsoleApp
                     {
                         case '1': telaAmigos.CadastrarAmigo(); break;
 
-                        case '2': telaAmigos.EditarEquipamento(); break;
+                        case '2': telaAmigos.EditarAmigo(); break;
+                        
+                        case '3': telaAmigos.ExcluirAmigo(); break;
 
                         case '4': telaAmigos.VisualizarAmigos(true); break;
 

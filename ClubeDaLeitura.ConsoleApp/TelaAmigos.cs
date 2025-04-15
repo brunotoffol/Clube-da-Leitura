@@ -15,7 +15,7 @@ namespace ClubeDaLeitura.ConsoleApp
 
             Console.WriteLine("1 - Cadastro");
             Console.WriteLine("2 - Editar");
-            Console.WriteLine("1 - Excluir");
+            Console.WriteLine("3 - Excluir");
             Console.WriteLine("4 - Visualização dos Amigos Cadastrados");
             Console.WriteLine("5 - Visualização dos Empréstimos");
             Console.WriteLine("S - Voltar");
@@ -77,6 +77,8 @@ namespace ClubeDaLeitura.ConsoleApp
 
             } while (!regexTelefone.IsMatch(telefone));
 
+            Console.WriteLine("--------------------------------------------");
+            Console.WriteLine("Cadastro realizado com sucesso!");
             Console.WriteLine("---------------------------------------------");
             Console.Write("Pressione ENTER para finalizar o cadastro e retornar ao Menu");
             Console.Read();
@@ -85,7 +87,7 @@ namespace ClubeDaLeitura.ConsoleApp
             amigos[contadorAmigos++] = novoAmigo;
 
         }
-        public void EditarEquipamento()
+        public void EditarAmigo()
         {
             Console.Clear();
             Console.WriteLine("--------------------------------------------");
@@ -98,7 +100,7 @@ namespace ClubeDaLeitura.ConsoleApp
             VisualizarAmigos(false);
 
             Console.WriteLine("---------------------------------------------");
-            Console.WriteLine("Digite o ID do amigo que deseja selecionar: ");
+            Console.Write("Digite o ID do amigo que deseja selecionar: ");
             int idSelecionado = Convert.ToInt32(Console.ReadLine());
 
             Console.Write("Digite o novo nome: ");
@@ -134,7 +136,44 @@ namespace ClubeDaLeitura.ConsoleApp
             }
 
             Console.WriteLine("--------------------------------------------");
-            Console.WriteLine("Cadastro editado com sucesso");
+            Console.WriteLine("Cadastro editado com sucesso!");
+            Console.WriteLine("---------------------------------------------");
+            Console.Write("Pressione ENTER para finalizar o cadastro e retornar ao Menu");
+            Console.Read();
+        }
+        public void ExcluirAmigo()
+        {
+            Console.Clear();
+            Console.WriteLine("--------------------------------------------");
+            Console.WriteLine("|              Clube do Livro               ");
+            Console.WriteLine("--------------------------------------------");
+
+            Console.WriteLine("Excluindo Cadastro do Amigo...");
+            Console.WriteLine("---------------------------------------------");
+
+            VisualizarAmigos(false);
+
+            Console.WriteLine("---------------------------------------------");
+            Console.Write("Digite o ID do amigo que deseja selecionar: ");
+            int idSelecionado = Convert.ToInt32(Console.ReadLine());
+
+            bool conseguiuExcluir = false;
+
+            for (int i = 0; i < amigos.Length; i++)
+            {
+                if (amigos[i] == null) continue;
+
+                else if (amigos[i].Id == idSelecionado)
+                {
+                    amigos[i] = null!;
+                    conseguiuExcluir |= true;
+                }
+
+
+            }
+
+            Console.WriteLine("--------------------------------------------");
+            Console.WriteLine("Cadastro excluído com sucesso!");
             Console.WriteLine("---------------------------------------------");
             Console.Write("Pressione ENTER para finalizar o cadastro e retornar ao Menu");
             Console.Read();
@@ -143,7 +182,8 @@ namespace ClubeDaLeitura.ConsoleApp
         {
             if (exibirTitulo)
             {
-                
+
+                Console.Clear();
                 Console.WriteLine("--------------------------------------------");
                 Console.WriteLine("|              Clube do Livro               ");
                 Console.WriteLine("--------------------------------------------");
