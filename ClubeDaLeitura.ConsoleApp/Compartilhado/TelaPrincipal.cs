@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ClubeDaLeitura.ConsoleApp
+namespace ClubeDaLeitura.ConsoleApp.Compartilhado
 {
     public class TelaPrincipal
     {
@@ -18,8 +18,8 @@ namespace ClubeDaLeitura.ConsoleApp
 
             Console.WriteLine();
 
-            Console.WriteLine("1 - Cadastro de Amigos");
-            Console.WriteLine("2 - ");
+            Console.WriteLine("1 - Gerenciamento de Amigos");
+            Console.WriteLine("2 - Gerenciamento de Caixas");
             Console.WriteLine("S - Sair");
 
             Console.WriteLine("--------------------------------------------");

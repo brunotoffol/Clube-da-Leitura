@@ -1,4 +1,6 @@
-﻿using System.Security.Cryptography.X509Certificates;
+﻿using ClubeDaLeitura.ConsoleApp.Compartilhado;
+using ClubeDaLeitura.ConsoleApp.ModuloAmigos;
+using System.Security.Cryptography.X509Certificates;
 
 namespace ClubeDaLeitura.ConsoleApp
 {
@@ -8,7 +10,7 @@ namespace ClubeDaLeitura.ConsoleApp
         {
             TelaPrincipal telaPrincipal = new TelaPrincipal();
             TelaAmigos telaAmigos = new TelaAmigos();
-
+            TelaCaixas telaCaixas = new TelaCaixas();
 
             while (true)
             {
@@ -33,6 +35,20 @@ namespace ClubeDaLeitura.ConsoleApp
 
                     Console.ReadLine();
 
+                }
+
+                if (opcaoPrincipal == '2')
+                {
+                    char opcaoEscolhida = telaCaixas.ApresentarMenu();
+
+                    switch (opcaoEscolhida)
+                    {
+                        case '1': telaCaixas.CadastrarCaixa(); break;
+
+                        default: break;
+                    }
+
+                    Console.ReadLine();
                 }
             }
         }

@@ -1,6 +1,6 @@
 ﻿using System.Text.RegularExpressions;
 
-namespace ClubeDaLeitura.ConsoleApp
+namespace ClubeDaLeitura.ConsoleApp.ModuloAmigos
 {
     internal class TelaAmigos
     {
@@ -46,7 +46,7 @@ namespace ClubeDaLeitura.ConsoleApp
                 if (nome.Length < 3 || nome.Length > 100)
                 {
                     Console.WriteLine("---------------------------------------------");
-                    Console.WriteLine("Não foi possível realizar o castro, o nome inserido é muito curto ou longo");
+                    Console.WriteLine("Não foi possível realizar o cadastro, o nome inserido é muito curto ou longo");
                 }
             } while (nome.Length < 3 || nome.Length > 100);
 
@@ -58,7 +58,7 @@ namespace ClubeDaLeitura.ConsoleApp
                 if (nome.Length < 3 || nome.Length > 100)
                 {
                     Console.WriteLine("---------------------------------------------");
-                    Console.WriteLine("Não foi possível realizar o castro, o nome inserido é muito curto ou longo");
+                    Console.WriteLine("Não foi possível realizar o cadastro, o nome inserido é muito curto ou longo");
                 }
             } while (nome.Length < 3 || nome.Length > 100);
 
