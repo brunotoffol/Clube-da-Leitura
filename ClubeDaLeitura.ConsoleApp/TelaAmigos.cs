@@ -13,11 +13,11 @@ namespace ClubeDaLeitura.ConsoleApp
             Console.WriteLine("|              Clube do Livro               ");
             Console.WriteLine("--------------------------------------------");
 
-            Console.WriteLine("1 - Cadastro de Amigos");
-            Console.WriteLine("2 - Editar cadastro de Amigos");
-            Console.WriteLine("1 - Excluir cadastro de Amigos");
+            Console.WriteLine("1 - Cadastro");
+            Console.WriteLine("2 - Editar");
+            Console.WriteLine("1 - Excluir");
             Console.WriteLine("4 - Visualização dos Amigos Cadastrados");
-            Console.WriteLine("5 - Visualização dos Empréstimos do Amigo");
+            Console.WriteLine("5 - Visualização dos Empréstimos");
             Console.WriteLine("S - Voltar");
             Console.WriteLine("--------------------------------------------");
             Console.Write("Escolha a operação desejada: ");
@@ -64,7 +64,7 @@ namespace ClubeDaLeitura.ConsoleApp
             } while (nome.Length < 3 || nome.Length > 100);
 
             string telefone;
-            Regex regexTelefone = new Regex(@"^\(?\d{2}\)?\s?\d{4,5}-?\d{4}$"); 
+            Regex regexTelefone = new Regex(@"^\(?\d{2}\)?\s?\d{4,5}-?\d{4}$");
             do
             {
                 Console.Write("Digite o telefone do amigo, formato (XX) XXXX-XXXX: ");
@@ -74,9 +74,9 @@ namespace ClubeDaLeitura.ConsoleApp
                 {
                     Console.WriteLine("---------------------------------------------");
                     Console.WriteLine("Telefone inválido. Tente novamente no formato correto.");
-                }                
+                }
 
-            } while (!regexTelefone.IsMatch(telefone));            
+            } while (!regexTelefone.IsMatch(telefone));
 
             Console.WriteLine("---------------------------------------------");
             Console.Write("Pressione ENTER para finalizar o cadastro e retornar ao Menu");
@@ -85,9 +85,46 @@ namespace ClubeDaLeitura.ConsoleApp
             Amigos novoAmigo = new Amigos(nome, nomeResponsavel, telefone);
             amigos[contadorAmigos++] = novoAmigo;
 
-        }            
-            
+        }
+        public void EditarEquipamento()
+        {
+            Console.Clear();
+            Console.WriteLine("--------------------------------------------");
+            Console.WriteLine("|              Clube do Livro               ");
+            Console.WriteLine("--------------------------------------------");
 
+            Console.WriteLine("Editando Amigo...");
+            Console.WriteLine("---------------------------------------------");
+            Console.WriteLine();
+        }
+        public void VisualizarAmigos(bool exibirTitulo)
+        {
+            if (exibirTitulo)
+            {
+                
+                Console.WriteLine("--------------------------------------------");
+                Console.WriteLine("|              Clube do Livro               ");
+                Console.WriteLine("--------------------------------------------");
+
+                Console.WriteLine("Visualizando lista de Amigos...");
+                Console.WriteLine("---------------------------------------------");
+                Console.WriteLine();
+            }
+            Console.WriteLine("{0, -15} | {1, -11} | {2, -20}", "Nome", "Nome Responsável", "Telefone");
+
+            for (int i = 0; i < amigos.Length; i++)
+            {
+                Amigos a = amigos[i];
+                
+                if (a == null) continue;
+                
+                Console.WriteLine("{0, -15} | {1, -11} | {2, -20}", a.Nome, a.NomeResponsavel, a.Telefone);
+
+            }
+        }
     }
+}    
 
-}
+
+
+
