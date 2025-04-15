@@ -1,4 +1,6 @@
-﻿using System.Runtime.ConstrainedExecution;
+﻿using ClubeDaLeitura.ConsoleApp.Compartilhado;
+using ClubeDaLeitura.ConsoleApp.ModuloAmigos;
+using System.Runtime.ConstrainedExecution;
 
 namespace ClubeDaLeitura.ConsoleApp
 {
@@ -118,10 +120,38 @@ namespace ClubeDaLeitura.ConsoleApp
                 }
             }
 
-            Console.WriteLine($"Tempo de empréstimo definido: {emprestimoTempo} dias");
-        }
+            Caixas novaCaixa = new Caixas(etiqueta, corEscolhida, emprestimoTempo);
+            novaCaixa.Id = GeradorIds.GerarIdCaixa();
 
-        public void VisualizarCaixas
+            caixas[contadorCaixas++] = novaCaixa;
+
+        }
+        public void VisualizarCaixas(bool exibirTitulo)
+        {
+            if (exibirTitulo)
+            {
+                Console.Clear();
+                Console.WriteLine("--------------------------------------------");
+                Console.WriteLine("|              Clube do Livro               ");
+                Console.WriteLine("--------------------------------------------");
+
+                Console.WriteLine("Visualizando lista de Caixas...");
+                Console.WriteLine("---------------------------------------------");
+
+                Console.WriteLine("{0, -5} | {1, -15} | {2, -11} | {3, -20}", "Id", "Etiqueta", "Cor", "Tempo de Emprestimo");
+
+                for (int i = 0; i < caixas.Length; i++)
+                {
+                    Caixas c = caixas[i];
+
+                    if (c == null) continue;
+
+                    Console.WriteLine("{0, -5} | {1, -15} | {2, -11} | {3, -20}", c.Id, c.Etiqueta, c.Cor, c.Emprestimo);
+                }
+                Console.WriteLine("--------------------------------------------");
+                Console.WriteLine("Pressione ENTER para retornar ao Menu Principal");
+            }
+        }
     }
 }
 

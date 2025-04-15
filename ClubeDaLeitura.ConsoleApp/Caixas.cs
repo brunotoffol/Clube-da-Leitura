@@ -3,6 +3,7 @@
     public class Caixas
     {
         // Etiqueta (max 50 char), Cor, Dias de empréstimo
+        public int Id;
         public string Etiqueta;
         public string Cor;
         public int Emprestimo;
