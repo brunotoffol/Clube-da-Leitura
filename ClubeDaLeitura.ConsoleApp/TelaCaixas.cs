@@ -1,5 +1,6 @@
 ﻿using ClubeDaLeitura.ConsoleApp.Compartilhado;
 using ClubeDaLeitura.ConsoleApp.ModuloAmigos;
+using System.ComponentModel.Design;
 
 namespace ClubeDaLeitura.ConsoleApp
 {
@@ -17,7 +18,7 @@ namespace ClubeDaLeitura.ConsoleApp
 
             Console.WriteLine("1 - Cadastro");
             Console.WriteLine("2 - Editar");
-            Console.WriteLine("1 - Excluir");
+            Console.WriteLine("3 - Excluir");
             Console.WriteLine("4 - Visualização das Caixas Cadastradas");
             Console.WriteLine("S - Voltar");
             Console.WriteLine("--------------------------------------------");
@@ -225,6 +226,40 @@ namespace ClubeDaLeitura.ConsoleApp
             Console.WriteLine("--------------------------------------------");
             Console.WriteLine("Pressione ENTER para retornar ao Menu Principal");
 
+        }
+        public void ExcluirCaixa()
+        {
+            Console.Clear();
+            Console.WriteLine("--------------------------------------------");
+            Console.WriteLine("|              Clube do Livro               ");
+            Console.WriteLine("--------------------------------------------");
+
+            Console.WriteLine("Excluindo Caixa...");
+            Console.WriteLine("---------------------------------------------");
+
+            VisualizarCaixas(true);
+
+
+            Console.Write("Digite o ID da caixas que deseja excluir: ");
+            int idSelecionado = Convert.ToInt32(Console.ReadLine());
+
+            bool conseguiuExcluir = false;
+
+            for (int i = 0; i < caixas.Length; i++)
+            {
+                if (caixas[i] == null) continue;
+
+                else if (caixas[i].Id == idSelecionado)
+                {
+                    caixas[i] = null;
+                    conseguiuExcluir |= true;
+                }
+            }
+            Console.WriteLine("--------------------------------------------");
+            Console.WriteLine("Cadastro excluído com sucesso!");
+            Console.WriteLine("---------------------------------------------");
+            Console.Write("Pressione ENTER para finalizar o cadastro e retornar ao Menu");
+            Console.Read();
         }
         public void VisualizarCaixas(bool exibirTitulo)
         {

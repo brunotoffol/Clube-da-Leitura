@@ -47,6 +47,8 @@ namespace ClubeDaLeitura.ConsoleApp
 
                         case '2': telaCaixas.EditarCaixa(); break;
 
+                        case '3': telaCaixas.ExcluirCaixa(); break;
+
                         case '4': telaCaixas.VisualizarCaixas(true); break;
 
                         default: break;
