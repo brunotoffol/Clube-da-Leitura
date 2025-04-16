@@ -1,6 +1,7 @@
 ﻿using ClubeDaLeitura.ConsoleApp.Compartilhado;
 using ClubeDaLeitura.ConsoleApp.ModuloAmigos;
 using ClubeDaLeitura.ConsoleApp.ModuloCaixas;
+using ClubeDaLeitura.ConsoleApp.ModuloRevista;
 using System.Security.Cryptography.X509Certificates;
 
 namespace ClubeDaLeitura.ConsoleApp

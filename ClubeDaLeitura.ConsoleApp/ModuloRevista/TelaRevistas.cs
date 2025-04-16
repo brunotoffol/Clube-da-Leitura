@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ClubeDaLeitura.ConsoleApp
+namespace ClubeDaLeitura.ConsoleApp.ModuloRevista
 {
     internal class TelaRevistas
     {
@@ -53,10 +53,10 @@ namespace ClubeDaLeitura.ConsoleApp
             } while (titulo.Length < 3 || titulo.Length > 100);
 
             Console.Write("Digite o número de edição da revista: ");
-            int numeroEdicao = Convert.ToInt32((Console.ReadLine()!).Trim());
+            int numeroEdicao = Convert.ToInt32(Console.ReadLine()!.Trim());
 
             Console.Write("Digite o número de edição da revista: ");
-            int anoPublicacao = Convert.ToInt32((Console.ReadLine()!).Trim());
+            int anoPublicacao = Convert.ToInt32(Console.ReadLine()!.Trim());
 
             #region
             Console.WriteLine("--------------------------------------------");
