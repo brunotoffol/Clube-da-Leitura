@@ -58,7 +58,37 @@ namespace ClubeDaLeitura.ConsoleApp
             Console.Write("Digite o número de edição da revista: ");
             int anoPublicacao = Convert.ToInt32((Console.ReadLine()!).Trim());
 
-            Revistas novaRevista = new Revistas(titulo, numeroEdicao, anoPublicacao);
+            #region
+            Console.WriteLine("--------------------------------------------");
+            Console.WriteLine("Escolha o status da Revista:");            
+            Console.WriteLine("1 - Emprestada");
+            Console.WriteLine("2 - Reservada");
+            Console.WriteLine("Caso a revista esteja disponível, pressione ENTER para continuar");
+            Console.WriteLine();
+            #endregion
+
+            string statusEscolhido = "";
+            bool revistaValida = false;
+            while (!revistaValida)
+            {
+                Console.Write("Selecione o status da Revista: ");
+                string escolha = Console.ReadLine()!.Trim();
+
+                switch (escolha)
+                {
+                    case "1":
+                        statusEscolhido = "Emprestada";
+                        revistaValida = true;
+                        break;
+                    case "2":
+                        statusEscolhido = "Reservada";
+                        revistaValida = true;
+                        break;
+                    default: statusEscolhido = "Disponível"; revistaValida = true; break;
+                }
+            }
+
+            Revistas novaRevista = new Revistas(titulo, statusEscolhido, numeroEdicao, anoPublicacao);
             revistas[contadorRevistas++] = novaRevista;
         }
         public void EditarRevista()
@@ -86,7 +116,36 @@ namespace ClubeDaLeitura.ConsoleApp
             Console.Write("Digite o novo ano de publicação: ");
             int anoPublicacao = Convert.ToInt32(Console.ReadLine()!.Trim());
 
-            Revistas novaRevista = new Revistas(titulo, numeroEdicao, anoPublicacao);
+            #region
+            Console.WriteLine("--------------------------------------------");
+            Console.WriteLine("Escolha o status da Revista:");
+            Console.WriteLine("1 - Emprestada");
+            Console.WriteLine("2 - Reservada");
+            Console.WriteLine("Caso a revista esteja disponível, pressione ENTER para continuar");
+            #endregion
+
+            string statusEscolhido = "";
+            bool revistaValida = false;
+            while (!revistaValida)
+            {
+                Console.Write("Selecione o status da Revista: ");
+                string escolha = Console.ReadLine()!.Trim();
+
+                switch (escolha)
+                {
+                    case "1":
+                        statusEscolhido = "Emprestada";
+                        revistaValida = true;
+                        break;
+                    case "2":
+                        statusEscolhido = "Reservada";
+                        revistaValida = true;
+                        break;
+                    default: statusEscolhido = "Disponível"; break;
+                }
+            }
+
+            Revistas novaRevista = new Revistas(titulo, statusEscolhido, numeroEdicao, anoPublicacao);
 
             bool conseguiuEditar = false;
 
@@ -158,7 +217,7 @@ namespace ClubeDaLeitura.ConsoleApp
                 Console.WriteLine("Visualizando lista de Revistas...");
                 Console.WriteLine("---------------------------------------------");
             }
-            Console.WriteLine("{0, -5} | {1, -15} | {2, -11} | {3, -20}", "Id", "Titulo", "Número Edição", "Ano de Publicação");
+            Console.WriteLine("{0, -5} | {1, -15} | {2, -11} | {3, -20} | {4, -25}", "Id", "Titulo", "Status", "Número Edição", "Ano de Publicação");
 
             for (int i = 0; i < revistas.Length; i++)
             {
@@ -166,7 +225,7 @@ namespace ClubeDaLeitura.ConsoleApp
 
                 if (r == null) continue;
 
-                Console.WriteLine("{0, -5} | {1, -15} | {2, -11} | {3, -20}", r.Id, r.Titulo, r.NumeroEdicao, r.AnoPublicacao);
+                Console.WriteLine("{0, -5} | {1, -15} | {2, -11} | {3, -20} | {4, -25}", r.Id, r.Titulo, r.Status, r.NumeroEdicao, r.AnoPublicacao);
             }
             Console.WriteLine("--------------------------------------------");
             Console.WriteLine("Pressione ENTER para continuar");
