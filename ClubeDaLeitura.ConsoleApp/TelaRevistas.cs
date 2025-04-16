@@ -115,6 +115,36 @@ namespace ClubeDaLeitura.ConsoleApp
             Console.Write("Pressione ENTER para finalizar o cadastro e retornar ao Menu");
             Console.ReadKey();
         }
+        public void ExcluirRevista()
+        {
+            Console.Clear();
+            Console.WriteLine("--------------------------------------------");
+            Console.WriteLine("|              Clube do Livro               ");
+            Console.WriteLine("--------------------------------------------");
+
+            Console.WriteLine("Excluindo Cadastro de Revista...");
+            Console.WriteLine("---------------------------------------------");
+
+            VisualizarRevista(false);
+            Console.WriteLine("---------------------------------------------");
+            Console.Write("Digite o ID do amigo que deseja selecionar: ");
+            int idSelecionado = Convert.ToInt32(Console.ReadLine());
+
+            bool conseguiuExcluir = false;
+
+            for (int i = 0; i < revistas.Length; i++)
+            {
+                if (revistas[i] == null) continue;
+
+                else if (revistas[i].Id == idSelecionado)
+                {
+                    revistas[i] = null!;
+                    conseguiuExcluir |= true;
+                }
+
+
+            }
+        }
         public void VisualizarRevista(bool exibirTitulo)
         {
             if (exibirTitulo)
