@@ -4,6 +4,7 @@
     {
         public static int IdAmigos = 0;
         public static int IdCaixas = 0;
+        public static int IdRevista = 0;
 
         public static int GerarIdAmigo()
         {
@@ -18,6 +19,14 @@
             IdCaixas++;
 
             return IdCaixas;
+
+        }
+
+        public static int GerarIdRevista()
+        {
+            IdRevista++;
+
+            return IdRevista;
 
         }
 

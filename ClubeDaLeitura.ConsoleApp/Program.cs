@@ -1,5 +1,6 @@
 ﻿using ClubeDaLeitura.ConsoleApp.Compartilhado;
 using ClubeDaLeitura.ConsoleApp.ModuloAmigos;
+using ClubeDaLeitura.ConsoleApp.ModuloCaixas;
 using System.Security.Cryptography.X509Certificates;
 
 namespace ClubeDaLeitura.ConsoleApp
@@ -11,6 +12,7 @@ namespace ClubeDaLeitura.ConsoleApp
             TelaPrincipal telaPrincipal = new TelaPrincipal();
             TelaAmigos telaAmigos = new TelaAmigos();
             TelaCaixas telaCaixas = new TelaCaixas();
+            TelaRevistas telaRevistas = new TelaRevistas();
 
             while (true)
             {
@@ -55,6 +57,20 @@ namespace ClubeDaLeitura.ConsoleApp
                     }
 
                     Console.ReadLine();
+                }
+
+                if (opcaoPrincipal == '3')
+                {
+                    char opcaoEscolhida = telaRevistas.ApresentarMenu();
+
+                    switch (opcaoEscolhida)
+                    {
+                        case '1': telaRevistas.CadastrarRevista(); break;
+
+                        case '4': telaRevistas.VisualizarRevista(true); break;
+
+                        default: break;
+                    }
                 }
             }
         }

@@ -2,7 +2,7 @@
 using ClubeDaLeitura.ConsoleApp.ModuloAmigos;
 using System.ComponentModel.Design;
 
-namespace ClubeDaLeitura.ConsoleApp
+namespace ClubeDaLeitura.ConsoleApp.ModuloCaixas
 {
     internal class TelaCaixas
     {

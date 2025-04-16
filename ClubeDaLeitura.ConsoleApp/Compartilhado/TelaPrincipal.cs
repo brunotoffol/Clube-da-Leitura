@@ -20,6 +20,7 @@ namespace ClubeDaLeitura.ConsoleApp.Compartilhado
 
             Console.WriteLine("1 - Gerenciamento de Amigos");
             Console.WriteLine("2 - Gerenciamento de Caixas");
+            Console.WriteLine("3 - Gerenciamento de Revistas");
             Console.WriteLine("S - Sair");
 
             Console.WriteLine("--------------------------------------------");
