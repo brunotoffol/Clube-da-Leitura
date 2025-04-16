@@ -67,6 +67,8 @@ namespace ClubeDaLeitura.ConsoleApp
                     {
                         case '1': telaRevistas.CadastrarRevista(); break;
 
+                        case '2': telaRevistas.EditarRevista(); break;
+
                         case '4': telaRevistas.VisualizarRevista(true); break;
 
                         default: break;

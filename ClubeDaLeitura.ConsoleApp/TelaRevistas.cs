@@ -52,14 +52,68 @@ namespace ClubeDaLeitura.ConsoleApp
                 }
             } while (titulo.Length < 3 || titulo.Length > 100);
 
-            Console.WriteLine("Digite o número de edição da revista: ");
+            Console.Write("Digite o número de edição da revista: ");
             int numeroEdicao = Convert.ToInt32((Console.ReadLine()!).Trim());
 
-            Console.WriteLine("Digite o número de edição da revista: ");
+            Console.Write("Digite o número de edição da revista: ");
             int anoPublicacao = Convert.ToInt32((Console.ReadLine()!).Trim());
 
             Revistas novaRevista = new Revistas(titulo, numeroEdicao, anoPublicacao);
             revistas[contadorRevistas++] = novaRevista;
+        }
+        public void EditarRevista()
+        {
+            Console.Clear();
+            Console.WriteLine("--------------------------------------------");
+            Console.WriteLine("|              Clube do Livro               ");
+            Console.WriteLine("--------------------------------------------");
+
+            Console.WriteLine("Editando Cadastro da Revista...");
+            Console.WriteLine("---------------------------------------------");
+
+            VisualizarRevista(false);
+
+            Console.WriteLine("---------------------------------------------");
+            Console.Write("Digite o ID do amigo que deseja selecionar: ");
+            int idSelecionado = Convert.ToInt32(Console.ReadLine());
+
+            Console.Write("Digite o novo titulo: ");
+            string titulo = Console.ReadLine()!.Trim();
+            
+            Console.Write("Digite o novo número de edição: ");
+            int numeroEdicao = Convert.ToInt32(Console.ReadLine()!.Trim());
+
+            Console.Write("Digite o novo ano de publicação: ");
+            int anoPublicacao = Convert.ToInt32(Console.ReadLine()!.Trim());
+
+            Revistas novaRevista = new Revistas(titulo, numeroEdicao, anoPublicacao);
+
+            bool conseguiuEditar = false;
+
+            for (int i = 0; i < revistas.Length; i++)
+            {
+                if (revistas[i] == null) continue;
+
+                else if (revistas[i].Id == idSelecionado)
+                {
+                    revistas[i].Titulo = novaRevista.Titulo;
+                    revistas[i].NumeroEdicao = novaRevista.NumeroEdicao;
+                    revistas[i].AnoPublicacao = novaRevista.AnoPublicacao;
+
+                    conseguiuEditar = true;
+                }
+            }
+
+            if (!conseguiuEditar)
+            {
+                Console.WriteLine("Não foi possível editar o amigo selecionado");
+            }
+
+            Console.WriteLine("--------------------------------------------");
+            Console.WriteLine("Cadastro editado com sucesso!");
+            Console.WriteLine("---------------------------------------------");
+            Console.Write("Pressione ENTER para finalizar o cadastro e retornar ao Menu");
+            Console.ReadKey();
         }
         public void VisualizarRevista(bool exibirTitulo)
         {
@@ -85,8 +139,8 @@ namespace ClubeDaLeitura.ConsoleApp
                 Console.WriteLine("{0, -5} | {1, -15} | {2, -11} | {3, -20}", r.Id, r.Titulo, r.NumeroEdicao, r.AnoPublicacao);
             }
             Console.WriteLine("--------------------------------------------");
-            Console.WriteLine("\nPressione ENTER para voltar ao menu...");
-            Console.ReadLine();
+            Console.WriteLine("Pressione ENTER para continuar");
+            Console.ReadKey();
         }
      }
 }
